@@ -24,7 +24,7 @@ public class FindElements {
     @Test
     public void findElements() {
         // get all the links displayed on page and common with the tag name <a>
-        List<WebElement> links = chromeDriver.findElements(By.tagName("xyz"));
+        List<WebElement> links = chromeDriver.findElements(By.tagName("a"));
         //verify
         System.out.println(links.size());
         Assert.assertEquals(46, links.size());

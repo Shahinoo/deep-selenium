@@ -25,6 +25,7 @@ public class FindElementById {
         WebElement password = chromeDriver.findElement(By.id("password"));
         System.out.println(userName.getTagName());
         System.out.println(password.getTagName());
+        System.out.println(userName.getAttribute("id"));
     }
 
     @AfterTest
