@@ -1,5 +1,6 @@
 package findingElements;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,8 +15,7 @@ public class FindElementByXpath {
 
     @BeforeTest
     public void openBrowser() {
-        String firefoxPath = System.getProperty("user.dir") + "\\resources\\geckodriver.exe";
-        System.setProperty("webdriver.gecko.driver", firefoxPath);
+        WebDriverManager.chromedriver().setup();
 //        chromeDriver = new ChromeDriver();
         firefoxDriver = new FirefoxDriver();
 //        chromeDriver.navigate().to("https://the-internet.herokuapp.com/login");

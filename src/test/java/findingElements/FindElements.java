@@ -1,5 +1,6 @@
 package findingElements;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,8 +16,7 @@ public class FindElements {
 
     @BeforeTest
     public void openBrowser() {
-        String chromePath = System.getProperty("user.dir") + "\\resources\\chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", chromePath);
+        WebDriverManager.chromedriver().setup();
         chromeDriver = new ChromeDriver();
         chromeDriver.navigate().to("https://the-internet.herokuapp.com");
     }

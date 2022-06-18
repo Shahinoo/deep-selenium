@@ -22,8 +22,15 @@
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
-      <version>7.4.0</version>
+      <version>7.6.0</version>
       <scope>test</scope>
+    </dependency>
+
+
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>5.2.0</version>
     </dependency>
 
     <dependency>
