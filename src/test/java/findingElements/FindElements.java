@@ -1,5 +1,6 @@
 package findingElements;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,8 +16,7 @@ public class FindElements {
 
     @BeforeTest
     public void openBrowser() {
-        String chromePath = System.getProperty("user.dir") + "\\resources\\chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", chromePath);
+        WebDriverManager.chromedriver().setup();
         chromeDriver = new ChromeDriver();
         chromeDriver.navigate().to("https://the-internet.herokuapp.com");
     }
@@ -24,14 +24,34 @@ public class FindElements {
     @Test
     public void findElements() {
         // get all the links displayed on page and common with the tag name <a>
-        List<WebElement> links = chromeDriver.findElements(By.tagName("xyz"));
+        // use findElement(s) method>> get all elements that meet the condition
+        List<WebElement> links = chromeDriver.findElements(By.tagName("a"));
         //verify
         System.out.println(links.size());
+        // Assert
         Assert.assertEquals(46, links.size());
         for (WebElement link: links){
             System.out.println(link.getAttribute("href"));
         }
     }
+
+    @Test
+    public void findSpecificElement() {
+        // find specific element
+        WebElement link = chromeDriver.findElements(By.tagName("a")).get(5);
+        //verify
+        System.out.println(link.getAttribute("href"));
+    }
+
+    @Test
+    public void findFirstElement() {
+        // because I used findElement method without (s), it will capture first element and break
+        WebElement link = chromeDriver.findElement(By.tagName("a"));
+        //verify
+        System.out.println(link.getAttribute("href"));
+    }
+
+
 
     @AfterTest
     public void closeBrowser() {

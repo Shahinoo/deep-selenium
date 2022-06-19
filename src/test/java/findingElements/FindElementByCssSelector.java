@@ -1,5 +1,6 @@
 package findingElements;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,8 +13,7 @@ public class FindElementByCssSelector {
 
     @BeforeTest
     public void openBrowser() {
-        String ChromePath = System.getProperty("user.dir") + "\\resources\\chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", ChromePath);
+        WebDriverManager.chromedriver().setup();
         chromeDriver = new ChromeDriver();
         chromeDriver.navigate().to("https://the-internet.herokuapp.com/login");
     }

@@ -1,5 +1,6 @@
 package findingElements;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,8 +14,7 @@ public class FindElementById {
 
     @BeforeTest
     public void openBrowser() {
-        String ChromePath = System.getProperty("user.dir") + "\\resources\\chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", ChromePath);
+        WebDriverManager.chromedriver().setup();
         chromeDriver = new ChromeDriver();
         chromeDriver.navigate().to("https://the-internet.herokuapp.com/login");
     }
@@ -25,6 +25,18 @@ public class FindElementById {
         WebElement password = chromeDriver.findElement(By.id("password"));
         System.out.println(userName.getTagName());
         System.out.println(password.getTagName());
+        System.out.println(userName.getAttribute("id"));
+    }
+
+    @Test
+    public void findIdElementUsingByClass() {
+        By userName = By.id("username");
+        By password = By.id("password");
+        WebElement usernameElement = chromeDriver.findElement(userName);
+        WebElement passwordElement = chromeDriver.findElement(password);
+        System.out.println(usernameElement.getTagName());
+        System.out.println(passwordElement.getTagName());
+        System.out.println(usernameElement.getAttribute("id"));
     }
 
     @AfterTest
@@ -32,3 +44,4 @@ public class FindElementById {
         chromeDriver.quit();
     }
 }
+
