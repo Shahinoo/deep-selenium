@@ -10,6 +10,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class DoubleClick {
     ChromeDriver chromeDriver;
 
@@ -27,6 +29,7 @@ public class DoubleClick {
     @Test
     public void doubleClickOnElement() throws InterruptedException {
         // find elements
+        chromeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         WebElement message = chromeDriver.findElement(By.id("message"));
         // verify background color before double click
         String backgroundColor = message.getCssValue("background-color");
@@ -36,7 +39,7 @@ public class DoubleClick {
         Actions builder = new Actions(chromeDriver);
         builder.doubleClick(message);
         builder.perform();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
 
         //Verify background color after double click
         String backgroundColorResult = message.getCssValue("background-color");

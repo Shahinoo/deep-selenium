@@ -25,7 +25,7 @@ public class TextBoxandButton {
     }
 
     @Test
-    public void loginScreen() {
+    public void loginScreen() throws InterruptedException {
         // find elements
         WebElement usernameTxt = chromeDriver.findElement(By.id("username"));
         WebElement passwordTxt = chromeDriver.findElement(By.id("password"));
@@ -47,6 +47,7 @@ public class TextBoxandButton {
         Assert.assertEquals("Your password is invalid!\n×",messageText);
         // Assert True - contains
         Assert.assertTrue(messageText.contains("invalid"));
+        Thread.sleep(2000);
     }
 
     @AfterTest
