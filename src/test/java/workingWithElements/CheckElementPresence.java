@@ -27,8 +27,9 @@ public class CheckElementPresence {
     public void checkElementPresence() throws InterruptedException {
         // use the method to check presence of the element
         // find the element if exist
+        Thread.sleep(2000);
         if (isElementPresent(By.xpath("//form[@id='checkboxes']/input[5]"))) {
-            WebElement check1 = chromeDriver.findElement(By.xpath("//form[@id='checkboxes']/input[1]"));
+            WebElement check1 = chromeDriver.findElement(By.xpath("/form[@id='checkboxes']/input[1]"));
             // select the checkbox if not selected
             if (!check1.isSelected()) {
                 check1.click();

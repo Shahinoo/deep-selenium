@@ -1,0 +1,15 @@
+<suite name="Suite1" verbose="1">
+
+
+    <test name="Practice">
+        <classes>
+            <class name="workingWithElements.VerificationAndAssertion">
+<!--                <methods>-->
+<!--                    <include name="invalidLogin"/>-->
+<!--                    <include name="assertTrueInvalidMessage"/>-->
+<!--                    <exclude name="assertEqualInvalidMessage"/>-->
+<!--                </methods>-->
+            </class>
+        </classes>
+    </test>
+</suite>
